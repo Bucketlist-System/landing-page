@@ -11,12 +11,8 @@ import GetStarted from "../components/sections/getstarted"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <Navigation />
+    <SEO title="Bucketlist System" />
     <Header />
-    <Features />
-    <GetStarted />
-    <Footer />
   </Layout>
 )
 

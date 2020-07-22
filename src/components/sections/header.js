@@ -27,29 +27,43 @@ const Header = () => {
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>Personal Finance</Subtitle>
-            <h1>
-              All your money,
+            
+            <Subtitle>
+              THE BUCKETLIST SYSTEM
               <br />
-              one account
+              FREE CHEAT SHEET & COACHING CALL
+            </Subtitle>
+            
+            <h1>
+              Sustain Change.
+              <br />
+              Make Your Inner
+              <br />
+              Desires Reality.
             </h1>
+            <h4>
+              Benefits of the Bucketlist System:
+            </h4>
             <h2>
-              We're building next generation personal finance tools. Sign up to
-              get early access.
+              + A way to make impactful use of your current time.
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <HeaderInput placeholder="Your email" />
-              <HeaderButton>Early access</HeaderButton>
-            </HeaderForm>
-            <FormSubtitle>
-              Already have a beta account?{" "}
-              <FormSubtitleLink to="/">Sign in</FormSubtitleLink>
-            </FormSubtitle>
+            <h2>
+              + Sustainable methods to clarify purpose, implement habits, and utilize reflection
+            </h2>
+            <h2>
+              + Actions items to get started today.
+            </h2>
+
           </HeaderTextGroup>
-          <ImageWrapper>
+          
+          <HeaderForm onSubmit={handleSubmit}>
+            <HeaderInput placeholder="Your email" />
+            <HeaderButton>SIGN UP TODAY</HeaderButton>
+          </HeaderForm>
+          {/* <ImageWrapper>
             <StyledImage fluid={data.file.childImageSharp.fluid} />
             <br />
-          </ImageWrapper>
+          </ImageWrapper> */}
         </Flex>
       </Container>
     </HeaderWrapper>
@@ -64,25 +78,36 @@ const HeaderWrapper = styled.header`
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
+    display: flex;
+    flex-direction: column;
   }
 `
 const Subtitle = styled.h5`
-  font-size: 16px;
+  font-size: 20px;
   color: ${props => props.theme.color.accent};
   letter-spacing: 0px;
-  margin-bottom: 16px;
 `
 
 const HeaderTextGroup = styled.div`
   margin: 0;
-
+  width: 50%;
+  max-width: 700px;
+  
+  @media (max-width: ${props => props.theme.screen.md}) {
+    width: 100%;
+    
+    }
+    
   > div {
-    width: 120%;
+    width: 110%;
     margin-bottom: -4.5%;
 
     @media (max-width: ${props => props.theme.screen.md}) {
       margin: 0 16px;
+      width: 100%;
     }
+    
+
   }
 
   h1 {
@@ -101,20 +126,20 @@ const HeaderTextGroup = styled.div`
 `
 
 const Flex = styled.div`
-  display: grid;
+  display: flex;
   justify-content: space-between;
   align-content: center;
-  grid-template-columns: 1fr 1fr;
   @media (max-width: ${props => props.theme.screen.md}) {
-    grid-template-columns: 1fr;
-    grid-gap: 64px;
+    flex-direction: column;
   }
 `
 
 const HeaderForm = styled.form`
   display: flex;
-  flex-direction: row;
-  padding-bottom: 16px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  // padding-bottom: 16px;
 
   @media (max-width: ${props => props.theme.screen.sm}) {
     flex-direction: column;
@@ -165,9 +190,10 @@ const HeaderButton = styled.button`
   font-size: 14px;
   color: white;
   letter-spacing: 1px;
+  width: 100%;
   height: 60px;
   display: block;
-  margin-left: 8px;
+  // margin-left: 8px;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;

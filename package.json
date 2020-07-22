@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-saas-marketing",
+  "name": "Ryan Morimoto",
   "private": true,
-  "description": "A simple one page marketing starter for saas companies",
+  "description": "Clarify Your Purpose, Sustain Habit Change, Reflection, Accountability",
   "version": "0.1.0",
-  "author": "Keegan Burkett <keegan.t.marciniak@gmail.com>",
+  "author": "Ryan Morimoto",
   "dependencies": {
     "gatsby": "^2.15.31",
     "gatsby-image": "^2.2.24",
