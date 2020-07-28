@@ -15,8 +15,27 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     font-family: ${props => props.theme.font.primary};
+    padding: auto 0;
+    background-image: url('/landingpage.jpeg');
+    background-position: top 20% center;
+    background-size: cover;
   }
+  
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    ${props => props.theme.font_size.regular};
+    font-family: ${props => props.theme.font_size.regular};
+    margin: 0.3em 0;
 
+  }
+  
+  li:before {
+    content: "+";
+    margin-right: 4px;
+  }
   
   h1 {
     ${props => props.theme.font_size.xlarge};
@@ -31,6 +50,9 @@ const GlobalStyles = createGlobalStyle`
   h3 {
     ${props => props.theme.font_size.larger};
     font-family: ${props => props.theme.font.bold};
+    margin: 0;
+    font-size: 35px;
+    line-height: 43px;
   }
 
   h4 {
@@ -39,8 +61,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h5 {
-    ${props => props.theme.font_size.xsmall};
-    font-family: ${props => props.theme.font.normal};
+    ${props => props.theme.font_size.normal};
+    font-family: ${props => props.theme.font.large};
   }
 
   p {
@@ -83,7 +105,7 @@ const GlobalStyles = createGlobalStyle`
 
     h3 {
       font-size: 32px;
-      line-height: 36px;
+      line-height: 32px;
     }
 
     h4 {

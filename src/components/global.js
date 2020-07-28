@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
@@ -11,15 +10,16 @@ export const Container = styled.div`
   }
 
   @media (min-width: ${props => props.theme.screen.sm}) {
-    max-width: 720px;
+    max-width: 820px;
   }
 
   @media (min-width: ${props => props.theme.screen.md}) {
-    max-width: 960px;
+    max-width: 1060px;
   }
 
   @media (min-width: ${props => props.theme.screen.lg}) {
-    max-width: 1200px;
+    max-width: 1400px;
+    padding: 2% 1%;
   }
 
   ${props =>

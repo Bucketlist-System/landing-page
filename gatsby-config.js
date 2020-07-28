@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
@@ -18,7 +19,6 @@ module.exports = {
         ],
       },
     },
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -3,9 +3,11 @@ import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
+import Timer from "../timer/timer"
+
 import { Container } from "../global"
 
-const Header = () => {
+const Header = ({terms, handleChange}) => {
   const data = useStaticQuery(graphql`
     query {
       file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
@@ -17,11 +19,7 @@ const Header = () => {
       }
     }
   `)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
-
+  
   return (
     <HeaderWrapper id="top">
       <Container>
@@ -34,6 +32,8 @@ const Header = () => {
               FREE CHEAT SHEET & COACHING CALL
             </Subtitle>
             
+            <Timer />
+            
             <h1>
               Sustain Change.
               <br />
@@ -44,22 +44,73 @@ const Header = () => {
             <h4>
               Benefits of the Bucketlist System:
             </h4>
-            <h2>
-              + A way to make impactful use of your current time.
-            </h2>
-            <h2>
-              + Sustainable methods to clarify purpose, implement habits, and utilize reflection
-            </h2>
-            <h2>
-              + Actions items to get started today.
-            </h2>
+            
+            <Ul>
+              <li>
+                  A way to make impactful use of your current time.
+              </li>
+              <li>
+                  Sustainable methods to clarify purpose, implement habits, and utilize reflection
+              </li>
+              <li>
+                  Actions items to get started today.
+              </li>
+              
+            </Ul>
 
           </HeaderTextGroup>
-          
-          <HeaderForm onSubmit={handleSubmit}>
-            <HeaderInput placeholder="Your email" />
-            <HeaderButton>SIGN UP TODAY</HeaderButton>
+                    
+
+          <HeaderForm method="POST" action="https://ryanmorimoto.activehosted.com/proc.php"  >
+            <input type="hidden" name="u" value="1" />
+            <input type="hidden" name="f" value="1" />
+            <input type="hidden" name="s" />
+            <input type="hidden" name="c" value="0" />
+            <input type="hidden" name="m" value="0" />
+            <input type="hidden" name="act" value="sub" />
+            <input type="hidden" name="v" value="2" />
+            <label><h3>Sign up now and receive a free cheat sheet and coaching call</h3></label>
+            <label><h5>Don't miss your chance. Sign up for a free coaching call. Limited to 50 people per week.</h5></label>
+            <div>
+              <div>
+                <div>
+                  <HeaderInput type="text" name="fullname" placeholder="Your name" required/>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <HeaderInput type="text" name="email" placeholder="Email Address" required/>
+                </div>
+              </div>
+              {/* <div>
+                <HeaderConsent>
+                  <HeaderCheckbox type="checkbox" />
+                  <label style={{color: "666666", fontSize: "12px", margin: "1rem"}}>
+                    I have read and agree to the <Link to="/">privacy policy</Link> and <Link to="/">terms of service</Link>.
+                  </label>
+                </HeaderConsent>
+              </div> */}
+              <div >
+                <div>
+                  <p style={{textAlign: 'center', color: "666666", fontSize: '14px', margin: '1.2em'}}>
+                    By entering your email, you agree to receive marketing emails from Ryan Morimoto.
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <div>
+                  <HeaderButton type="submit" required>
+                    SIGN UP TODAY
+                  </HeaderButton>
+                  
+                </div>
+              </div>
+              
+            </div>
+
           </HeaderForm>
+
           {/* <ImageWrapper>
             <StyledImage fluid={data.file.childImageSharp.fluid} />
             <br />
@@ -73,40 +124,42 @@ const Header = () => {
 export default Header
 
 const HeaderWrapper = styled.header`
-  background-color: #f8f8f8;
-  padding: 160px 0 80px 0;
+  // background-color: #f8f8f8;
+  color: #f8f8f8;
+  padding: 1% 2%;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
   @media (max-width: ${props => props.theme.screen.md}) {
     display: flex;
     flex-direction: column;
+    padding: 0;
   }
 `
+
 const Subtitle = styled.h5`
   font-size: 20px;
-  color: ${props => props.theme.color.accent};
+  color: ${props => props.theme.color.regular};
   letter-spacing: 0px;
 `
 
 const HeaderTextGroup = styled.div`
-  margin: 0;
-  width: 50%;
+  margin: auto 0;
+  width: 60%;
   max-width: 700px;
   
   @media (max-width: ${props => props.theme.screen.md}) {
     width: 100%;
-    
+    margin: 0;
     }
     
   > div {
-    width: 110%;
-    margin-bottom: -4.5%;
+    // margin-bottom: -4.5%;
 
-    @media (max-width: ${props => props.theme.screen.md}) {
-      margin: 0 16px;
-      width: 100%;
-    }
-    
+    // @media (max-width: ${props => props.theme.screen.md}) {
+    //   margin: 0 16px;
+    //   width: 100%;
+    // }
+  
 
   }
 
@@ -129,34 +182,46 @@ const Flex = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
+  margin: 2rem auto;
   @media (max-width: ${props => props.theme.screen.md}) {
     flex-direction: column;
+    margin: 0;
+  }
+`
+
+const Ul = styled.ul`
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  li {
+    display: flex;
   }
 `
 
 const HeaderForm = styled.form`
   display: flex;
+  color: #000000;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
-  // padding-bottom: 16px;
+  box-shadow: 0 1px 4px 1.5px rgba(100,100,100,0.2);
 
-  @media (max-width: ${props => props.theme.screen.sm}) {
-    flex-direction: column;
+  margin: 1rem auto;
+  margin-right: 0;
+  padding: 3rem 2rem;
+  width: 38%;
+  background-color: #FFFFFF;
+
+  @media (max-width: ${props => props.theme.screen.md}) {
+    margin: 1rem auto;
+    width: 100%;
+  }
+  
+  h5 {
+    font-size: 1.5rem;
+    line-height: 1.3em;
   }
 `
 
-const FormSubtitle = styled.span`
-  ${props => props.theme.font_size.xxsmall}
-`
-
-const FormSubtitleLink = styled(Link)`
-  color: ${props => props.theme.color.secondary};
-  padding-bottom: 1px;
-  margin-left: 8px;
-  text-decoration: none;
-  border-bottom: 1px solid ${props => props.theme.color.secondary};
-`
 
 const HeaderInput = styled.input`
   font-weight: 500;
@@ -173,6 +238,7 @@ const HeaderInput = styled.input`
   border-radius: 4px;
   padding: 8px 16px;
   outline: 0px;
+  margin: 1rem 0;
   &:focus {
     box-shadow: inset ${props => props.theme.color.secondary} 0px 0px 0px 2px;
   }
@@ -184,6 +250,30 @@ const HeaderInput = styled.input`
     width: 100%;
   }
 `
+
+const HeaderConsent = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem auto;
+`
+
+const HeaderCheckbox = styled.input`
+  color: ${props => props.theme.color.primary};
+  text-align: left;
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${props => props.theme.color.secondary};
+  border-image: initial;
+  border-radius: 4px;
+  outline: 0px;
+  margin: 1rem 0;
+  margin-left: 1.3rem;
+  &:focus {
+    box-shadow: inset ${props => props.theme.color.secondary} 0px 0px 0px 2px;
+  }
+  
+`
+
 
 const HeaderButton = styled.button`
   font-weight: 500;
