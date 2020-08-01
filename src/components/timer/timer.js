@@ -51,7 +51,7 @@ const Timer = () => {
       <section className={styles.wrapper}>
         <section className={styles.timer}>
           <div>
-            <h2>Countdown Timer</h2>
+            <h2>Enter to win $25 gift card in</h2>
           </div>
           <div>
             <section>
