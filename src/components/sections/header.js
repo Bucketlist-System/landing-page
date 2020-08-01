@@ -257,22 +257,6 @@ const HeaderConsent = styled.div`
   margin: 0.5rem auto;
 `
 
-const HeaderCheckbox = styled.input`
-  color: ${props => props.theme.color.primary};
-  text-align: left;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${props => props.theme.color.secondary};
-  border-image: initial;
-  border-radius: 4px;
-  outline: 0px;
-  margin: 1rem 0;
-  margin-left: 1.3rem;
-  &:focus {
-    box-shadow: inset ${props => props.theme.color.secondary} 0px 0px 0px 2px;
-  }
-  
-`
 
 
 const HeaderButton = styled.button`
